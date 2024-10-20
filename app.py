@@ -40,7 +40,7 @@ else:
     st.warning("Logo file not found. Please make sure 'logo.jpg' is in the same directory as the script.")
 
 # Set the title and subtitle
-st.title("💗📸 Vital Image Analytics 👩‍⚕️🏥")
+st.title("💗📸 Medical Image Analytics 👩‍⚕️🏥")
 st.subheader("An application that helps users identify and analyze medical images")
 
 # File uploader
@@ -48,7 +48,7 @@ uploaded_file = st.file_uploader("Upload the medical image for analysis", type=[
 
 
 def analyze_image(image):
-    prompt = "Analyze this medical image. Describe what you see, identify any potential abnormalities or conditions, and provide any relevant medical insights. Please note that this is an AI-generated analysis and should not be considered a substitute for professional medical advice."
+    prompt = "Analyze this medical image as a doctor or medical expert diagnosing a problem. Describe what you see, identify any potential abnormalities or conditions, and provide any relevant medical insights."
     
     buffered = io.BytesIO()
     image.save(buffered, format="JPEG")
@@ -79,7 +79,3 @@ if submit_button and uploaded_file is not None:
 
 elif submit_button and uploaded_file is None:
     st.error("Please upload an image before generating the analysis.")
-
-# Add a disclaimer at the bottom of the page
-st.markdown("---")
-st.caption("Disclaimer: This application is for informational purposes only and is not intended to provide medical advice. Always consult with a qualified healthcare professional for medical diagnosis and treatment.")
